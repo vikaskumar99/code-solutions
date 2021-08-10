@@ -14,14 +14,21 @@ Output: 9.26100
 """
 
 def brute_force(x, n):
-    pass
+    num = abs(n)
+    ans = 1.0
+    while(num > 0):
+        ans = ans * x
+        num -= 1
+    if n < 0:
+        ans = 1.0 / ans
+    return ans
 
 def better_solution(x, n):
     ans = 1.0
     num = abs(n)
 
     while num > 0:
-        print("line", ans, x, num)
+        #print("line", ans, x, num)
         if num % 2 == 1:
             ans = ans * x
         x = x * x
@@ -34,5 +41,6 @@ def better_solution(x, n):
 
 
 x = 2
-n = 10
+n = -10
 print(better_solution(x, n),  pow(x, n))
+print(brute_force(x, n))
